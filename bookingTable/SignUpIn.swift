@@ -124,7 +124,7 @@ struct SignIn: View{
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     //NavigationLink(destination: mainMenu(), isActive: $mm){EmptyView()}
-                    NavigationLink(destination: mainMenu(), isActive: $mm){EmptyView()}
+                    NavigationLink(destination: Home(), isActive: $mm){EmptyView()}
                     Button("Sign In"){
                         for user in users{
                             if user.login==userLogin && user.password == userPassword{
