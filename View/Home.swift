@@ -101,7 +101,7 @@ struct Home: View {
 struct TicketsButton: View{
     
     var body: some View{
-        NavigationLink(destination: Text("Destination"), label: {
+        NavigationLink(destination: BookingView(), label: {
             Text("Купить билеты")
                 .fontWeight(.bold)
                 .foregroundColor(.white)

@@ -49,29 +49,28 @@ struct BookingView: View {
                 
                 HStack(spacing: 30){
                     let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 4)
-                    
-                    LazyVGrid(columns: columns, spacing: 13, content: {
-                        ForEach(leftSide,id: \.self){index in
-                            SeatView(index: index)
-                        }
-                             
-                        
-                    })
+                    LazyVGrid(columns: columns, spacing: 13) {
+                        ForEach(leftSide){index in
+                            ZStack{
+                                Text(String(index))
+                                RoundedRectangle(cornerRadius: 6)
+                                    .stroke(Color.blue)
+                                    .frame(height: 30)
+                            }
+                         }
+                    }
+                    LazyVGrid(columns: columns, spacing: 13) {
+                        ForEach(leftSide){index in
+                            Text("da").foregroundColor(.white)
+                         }
+                    }
                 }
             })
         }
     }
 }
 
-struct SeatView{
-    var index: Int
-    var body: some View{
-        ZStack{
-            RoundedRectangle(cornerRadius: 6)
-                .stroke(Color )
-        }
-    }
-}
+
 
 
 struct BookingView_Previews: PreviewProvider {
