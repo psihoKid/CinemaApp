@@ -22,7 +22,7 @@ struct BookingView: View {
                 }
                 
                 .overlay(
-                    Text("Выберите места")
+                    Text("В процессе разработки")
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
@@ -49,28 +49,36 @@ struct BookingView: View {
                 
                 HStack(spacing: 30){
                     let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 4)
-                    LazyVGrid(columns: columns, spacing: 13) {
+                    LazyVGrid(columns: columns, spacing: 13, content:{
                         ForEach(leftSide){index in
                             ZStack{
-                                Text(String(index))
                                 RoundedRectangle(cornerRadius: 6)
                                     .stroke(Color.blue)
                                     .frame(height: 30)
                             }
                          }
-                    }
-                    LazyVGrid(columns: columns, spacing: 13) {
-                        ForEach(leftSide){index in
-                            Text("da").foregroundColor(.white)
-                         }
-                    }
+                    })
+                    
+//                    LazyVGrid(columns: columns, spacing: 13) {
+//                        ForEach(leftSide){index in
+//                            SeatView(index: index)
+//                         }
+//                    }
                 }
             })
         }
     }
 }
 
-
+struct SeatView: View{
+    var index: Int
+    
+    var body: some View{
+        RoundedRectangle(cornerRadius: 6)
+            .stroke(Color.blue, lineWidth: 2)
+            .frame(height: 30)
+    }
+}
 
 
 struct BookingView_Previews: PreviewProvider {

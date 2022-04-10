@@ -21,42 +21,50 @@ struct Regestration: View{
     @State var userEmail: String = ""
     @State var Emails: [String]  = ["@mail.ru","@gmail.com", "@outlook.com", "@yahoo!mail.com","@aol.com"]
     @State var RightMail: Bool = false
+    @State var Succ: Bool = false
     var body: some View{
         NavigationView{
+            
             ZStack{
-                Image("signUpIn").resizable().aspectRatio(contentMode: .fill).frame(minWidth: 0, maxWidth: .infinity).edgesIgnoringSafeArea(.all)
+                Image("bg").resizable().aspectRatio(contentMode: .fill).frame(minWidth: 0, maxWidth: .infinity).edgesIgnoringSafeArea(.all)
                 VStack{
                     HStack{
-                        Image(systemName: "person").foregroundColor(.gray)
-                        TextField("Enter your name", text: $userName)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+                        Text("Регестрация")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }.padding(1)
                     HStack{
                         Image(systemName: "person").foregroundColor(.gray)
-                        TextField("Enter your last name", text: $userLastName)
+                        TextField("Введите ваше имя", text: $userName)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+                    }.padding(1)
                     HStack{
                         Image(systemName: "person").foregroundColor(.gray)
-                        TextField("Enter your login", text: $userLogin)
+                        TextField("Введите вашу фамилию", text: $userLastName)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+                    }.padding(1)
                     HStack{
                         Image(systemName: "person").foregroundColor(.gray)
-                        TextField("Enter your password", text: $userPassword)
+                        TextField("Введите ваш логин ", text: $userLogin)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+                    }.padding(1)
                     HStack{
                         Image(systemName: "person").foregroundColor(.gray)
-                        TextField("Repeat your password", text: $userRetryPassword)
+                        TextField("Введите ваш пороль", text: $userPassword)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+                    }.padding(1)
                     HStack{
                         Image(systemName: "person").foregroundColor(.gray)
-                        TextField("Repeat your e-mail", text: $userEmail)
+                        TextField("Повторите ваш пороль", text: $userRetryPassword)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    Button("Creat account"){
+                    }.padding(1)
+                    HStack{
+                        Image(systemName: "person").foregroundColor(.gray)
+                        TextField("Введите вашу почту", text: $userEmail)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }.padding(3)
+                    Button("Создать аккаунт"){
                         
                         for item in Emails{
                             if userEmail.contains(item){
@@ -68,7 +76,9 @@ struct Regestration: View{
                             if userPassword.count>=6{
                                 if userName.count>=3{
                                     if RightMail{
+//                                        Succ = true
                                         do{
+                                            
                                             let user = User(context: moc)
                                             user.id = UUID()
                                             user.name = userName
@@ -78,7 +88,15 @@ struct Regestration: View{
                                             user.password = userPassword
                                             user.mail = userEmail
                                             try moc.save()
+                                            Succ = true
                                             RightMail = false
+//                                                .alert(isPresented: $Succ){
+//                                                    Alert(
+//                                                        title: Text("Успешно"),
+//                                                        message: Text("Вы успешно зарегестрировались")
+//                                                    )
+//                                                }
+                                                
                                         }catch{
                                             print(error)
                                         }
@@ -86,17 +104,20 @@ struct Regestration: View{
                                 }
                             }
                         }
-                    }
+                    }.padding(3)
                     
                     NavigationLink(destination: SignIn(), label:{
-                        Text("Sign In")
+                        Text("Войти")
                     })
-                    NavigationLink(destination: AdminPanel(), label:{
-                        Text("User Panel")
-                    })
-                }.navigationTitle(Text("Registration form"))
+                }.navigationBarTitleDisplayMode(.inline)
             }
         }.navigationBarBackButtonHidden(true)
+            .alert(isPresented: $Succ){
+                Alert(
+                    title: Text("Успешно"),
+                    message: Text("Вы успешно зарегестрировались")
+                )
+            }
     }
 }
 
@@ -111,35 +132,37 @@ struct SignIn: View{
     var body: some View{
         NavigationView{
             ZStack{
-                Image("signUpIn").resizable().aspectRatio(contentMode: .fill).frame(minWidth: 0, maxWidth: .infinity).edgesIgnoringSafeArea(.all)
+                Image("bg").resizable().aspectRatio(contentMode: .fill).frame(minWidth: 0, maxWidth: .infinity).edgesIgnoringSafeArea(.all)
                 VStack{
                     HStack{
-                        Image(systemName: "person").foregroundColor(.gray)
-                        TextField("Enter your login", text: $userLogin)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+                        Text("Регестрация")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }.padding(1)
                     HStack{
                         Image(systemName: "person").foregroundColor(.gray)
-                        TextField("Enter your password", text: $userPassword)
+                        TextField("Введите ваш логин", text: $userLogin)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    //NavigationLink(destination: mainMenu(), isActive: $mm){EmptyView()}
+                    }.padding(1)
+                    HStack{
+                        Image(systemName: "person").foregroundColor(.gray)
+                        TextField("Введите ваш пороль", text: $userPassword)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }.padding(1)
                     NavigationLink(destination: MainMenu(), isActive: $mm){EmptyView()}
-                    Button("Sign In"){
+                    Button("Войти"){
                         for user in users{
                             if user.login==userLogin && user.password == userPassword{
                                 mm = true
-                                //NavigationLink(destination: mainMenu(), isActive: $mm){EmptyView()}
-                                //NavigationLink(destination: MainMenuAssorti(), isActive: $mm){EmptyView()}
-                                print("Ok")
+
                             }
                             else{
-                                print("No")
+                                
                             }
                         }
                     }
                 }
-                .navigationTitle("Sign In")
             }
         }.navigationBarBackButtonHidden(true)
     }

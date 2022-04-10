@@ -1477,9 +1477,9 @@ struct WhatDidSenkaHave: View {
 //                                Image(systemName: "chevron.left")
 //                                    .font(.title2)
 //                            })
-                            
+
                             Spacer()
-                            
+
                             Button(action: {}, label: {
                                 Image(systemName: "bookmark")
                                     .font(.title2)
@@ -1580,6 +1580,6 @@ extension View{
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Duna()
+        TheCallOfTheWild()
     }
 }

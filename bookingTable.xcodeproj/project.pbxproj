@@ -22,7 +22,6 @@
 		849AA38327F7025C00AB4496 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AA38227F7025C00AB4496 /* FilmModel.swift */; };
 		84A47A6427F5C7550018E84B /* BookingDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846D350C27C7A85800D07977 /* BookingDataBase.xcdatamodeld */; };
 		84A742BD27F97C5000BD0694 /* CartoonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A742BC27F97C5000BD0694 /* CartoonModel.swift */; };
-		84C46F4E27F6F62300D2B3F9 /* aaaa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C46F4D27F6F62300D2B3F9 /* aaaa.swift */; };
 		84E7890027E354DE006122D4 /* AnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E788FF27E354DE006122D4 /* AnimeModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +61,6 @@
 		846D350D27C7A85800D07977 /* BookingDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookingDataBase.xcdatamodel; sourceTree = "<group>"; };
 		849AA38227F7025C00AB4496 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		84A742BC27F97C5000BD0694 /* CartoonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartoonModel.swift; sourceTree = "<group>"; };
-		84C46F4D27F6F62300D2B3F9 /* aaaa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aaaa.swift; sourceTree = "<group>"; };
 		84E788FF27E354DE006122D4 /* AnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +102,6 @@
 		846D34CF27C7A72B00D07977 = {
 			isa = PBXGroup;
 			children = (
-				84C46F4D27F6F62300D2B3F9 /* aaaa.swift */,
 				84E788FE27E35481006122D4 /* Model */,
 				840CD00927DDC9C800E30233 /* View */,
 				846D34DA27C7A72B00D07977 /* bookingTable */,
@@ -309,7 +306,6 @@
 				840374DC27F5C4E000B46A62 /* MainMenu.swift in Sources */,
 				84A742BD27F97C5000BD0694 /* CartoonModel.swift in Sources */,
 				846D34DC27C7A72B00D07977 /* bookingTableApp.swift in Sources */,
-				84C46F4E27F6F62300D2B3F9 /* aaaa.swift in Sources */,
 				84A47A6427F5C7550018E84B /* BookingDataBase.xcdatamodeld in Sources */,
 				840CD00D27DDCD9400E30233 /* Home.swift in Sources */,
 				84E7890027E354DE006122D4 /* AnimeModel.swift in Sources */,

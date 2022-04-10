@@ -34,6 +34,7 @@ struct MainMenu: View {
         ForFamilyViewing(id: 4, title: "Поллианна", imageUrl: "posterPollyanna", nameFilm: AnyView(Pollyanna())),
         ForFamilyViewing(id: 5, title: "Что у Сеньки было", imageUrl: "posterWhatDidSenkaHave", nameFilm: AnyView(WhatDidSenkaHave()))
     ]
+
     
     var body: some View {
         NavigationView{
@@ -84,7 +85,8 @@ struct MainMenu: View {
                     }
                 })
             }
-        }
+            .navigationBarTitleDisplayMode(.inline)
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
@@ -105,6 +107,7 @@ struct BoxViewWatchingNow: View{
         }
     }
 }
+
 
 
 //Hot New Films
@@ -142,6 +145,7 @@ struct BoxViewForFamilyViewing: View{
         }
     }
 }
+
     
     
     struct MainMenu_Previews: PreviewProvider {
